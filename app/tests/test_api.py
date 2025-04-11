@@ -19,6 +19,10 @@ def test_get_wallet_info():
         json={"wallet_address": "TNPeeaaFB7K9cmo4uQpcU32zGK8G1NYqeL"},
     )
     assert response.status_code == 200
+    data = response.json()
+    assert "trx_balance" in data
+    assert "energy" in data
+    assert "bandwidth" in data
 
 
 def test_query_history():
